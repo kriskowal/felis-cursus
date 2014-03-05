@@ -1,43 +1,13 @@
-/* <copyright>
-Copyright (c) 2012, Motorola Mobility LLC.
-All Rights Reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-* Redistributions of source code must retain the above copyright notice,
-  this list of conditions and the following disclaimer.
-
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-
-* Neither the name of Motorola Mobility LLC nor the names of its
-  contributors may be used to endorse or promote products derived from this
-  software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
-LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-POSSIBILITY OF SUCH DAMAGE.
-</copyright> */
- /**
-	@module montage/core/state-chart
-    @requires montage
-*/
+/**
+ * @module montage/core/state-chart
+ * @requires montage
+ */
 var Montage = require("montage").Montage;
 
 /**
-    @class State
-    @extends Montage
-*/
+ * @class State
+ * @extends Montage
+ */
 var State = exports.State = Montage.specialize( /** @lends State# */{
 
     _stateChart: {
@@ -51,12 +21,12 @@ var State = exports.State = Montage.specialize( /** @lends State# */{
         }
     },
 
-/**
-    Initializes a State object with a set of options.
-    @function
-    @param {String} options The options for the new State.
-    @returns {State}
-    */
+    /**
+     * Initializes a State object with a set of options.
+     * @method
+     * @param {string} options The options for the new State.
+     * @returns {State}
+     */
     init: {
         value: function(options) {
 
@@ -91,25 +61,27 @@ var State = exports.State = Montage.specialize( /** @lends State# */{
             return this;
         }
     },
-/**
-        The name of the state.
-        @type {Property}
-        @default {String} null
-    */
+
+    /**
+     * The name of the state.
+     * @type {Property}
+     * @default {string} null
+     */
     name: {
         enumerable: false,
         value: null
     },
+
     _initialSubstate: {
         enumerable: false,
         value: null
     },
 
-/**
-        The intitial substate.
-        @type {Function}
-        @default {String} null
-    */
+    /**
+     * The intitial substate.
+     * @type {Function}
+     * @default {string} null
+     */
     initialSubstate: {
         get: function() {
             if (typeof this._initialSubstate === "string") {
@@ -121,20 +93,22 @@ var State = exports.State = Montage.specialize( /** @lends State# */{
             this._initialSubstate = value;
         }
     },
-/**
-        The set of substates.
-        @type {Property}
-        @default {String} null
+
+    /**
+     * The set of substates.
+     * @type {Property}
+     * @default {string} null
     */
     substates: {
         enumerable: false,
         value: null
     },
-/**
-       The state's parent state.
-        @type {Property}
-        @default {String} null
-    */
+
+    /**
+     * The state's parent state.
+     * @type {Property}
+     * @default {string} null
+     */
     parentState: {
         enumerable: false,
         value: null
@@ -145,10 +119,10 @@ var State = exports.State = Montage.specialize( /** @lends State# */{
         value: null
     },
 
-/**
-        @type {Function}
-        @default {String} null
-    */
+    /**
+     * @type {Function}
+     * @default {string} null
+     */
     path: {
         // TODO add dependency on parentState, remember to clear cached value
         enumerable: false,
@@ -164,27 +138,31 @@ var State = exports.State = Montage.specialize( /** @lends State# */{
             return this._path;
         }
     },
-/**
-        @type {Property}
-        @default {String} null
-    */
+
+    /**
+     * @type {Property}
+     * @default {string} null
+     */
     enterState: {
         enumerable: false,
         value: null
     },
-/**
-        @type {Property}
-        @default {String} null
-    */
+
+    /**
+     * @type {Property}
+     * @default {string} null
+     */
     exitState: {
         enumerable: false,
         value: null
     },
-/**
-    @function
-    @param {String} otherState
-    @returns !!this.path.match(new RegExp(".?" + otherState + ".?"))
-    */
+
+    /**
+     * @method
+     * @param {string} otherState
+     * @returns `!!this.path.match(new RegExp(".?" + otherState + ".?"))`
+     */
+    // TODO XXX @returns block should be in code
     isInState: {
         enumerable: false,
         value: function(otherState) {
@@ -196,9 +174,7 @@ var State = exports.State = Montage.specialize( /** @lends State# */{
             return !!this.path.match(new RegExp(".?" + otherState + ".?"));
         }
     },
-/**
-  @private
-*/
+
     _encloseGotoState: {
         value: function(state) {
             return (function(stateChart, owner) {
@@ -207,28 +183,28 @@ var State = exports.State = Montage.specialize( /** @lends State# */{
             });
         }
     },
-/**
-    @function
-    @param {Property} state
-    @param {Property} owner
-    @returns this._stateChart._gotoState(state, owner)
-    */
+
+    /**
+     * @method
+     * @param {Property} state
+     * @param {Property} owner
+     * @returns this._stateChart._gotoState(state, owner)
+     */
     gotoState: {
         value: function(state, owner) {
             return this._stateChart._gotoState(state, owner);
         }
     },
-/**
-  @private
-*/
+
     _performAction: {
         enumerable: null,
         value: function(actionName, stateChart, owner) {
             if (this[actionName]) {
-                // TODO what should the context be inside the action function: state or stateChart?
-                // state makes sense but requires that authors know that when building a stateChart
-                // it's easy to get annoyed with having to remember which one you're in when building
-                // a relatively complex stateChart
+                // TODO what should the context be inside the action function:
+                // state or stateChart?  state makes sense but requires that
+                // authors know that when building a stateChart it's easy to
+                // get annoyed with having to remember which one you're in when
+                // building a relatively complex stateChart
                 // we could just .call(this._stateChart, args) etc...
                 this[actionName](stateChart, owner);
 
@@ -239,10 +215,11 @@ var State = exports.State = Montage.specialize( /** @lends State# */{
             }
         }
     },
-/**
-    @function
-    @returns "[State " + this.path + " ]"
-    */
+
+    /**
+     * @method
+     * @returns "[State " + this.path + " ]"
+     */
     toString: {
         enumerable: false,
         value: function() {
@@ -251,36 +228,42 @@ var State = exports.State = Montage.specialize( /** @lends State# */{
     }
 
 });
+
 /**
-    @class StateChart
-*/
+ * @class StateChart
+ */
 var StateChart = exports.StateChart = Montage.specialize(/** @lends StateChart# */ {
-/**
-        @type {Property}
-        @default {String} null
-    */
+
+    /**
+     * @type {Property}
+     * @default {string} null
+     */
     delegate: {
         enumerable: false,
         value: null
     },
 
-    // When the ownerStateProperty is set, we expect all operations of this stateChart to rely on the owner property.
-    // That is, many objects can rely on this stateChart to manage the flow of state but keep track of their own
-    // currentState (exposed as ownerStateProperty and recorded at "_" + ownerStateProperty);
-    // When this is set, the statechart itself is completely stateless and an object must take ownership of it
-    // prior to performing any actions
-/**
-        @type {Property}
-        @default {String} null
-    */
+    // When the ownerStateProperty is set, we expect all operations of this
+    // stateChart to rely on the owner property.
+    // That is, many objects can rely on this stateChart to manage the flow of
+    // state but keep track of their own currentState (exposed as
+    // ownerStateProperty and recorded at "_" + ownerStateProperty);
+    // When this is set, the statechart itself is completely stateless and an
+    // object must take ownership of it prior to performing any actions
+
+    /**
+     * @type {Property}
+     * @default {string} null
+     */
     ownerStateProperty: {
         enumerable: false,
         value: null
     },
-/**
-        @type {Property}
-        @default {String} null
-    */
+
+    /**
+     * @type {Property}
+     * @default {string} null
+     */
     rootState: {
         enumerable: false,
         value: null
@@ -290,21 +273,24 @@ var StateChart = exports.StateChart = Montage.specialize(/** @lends StateChart# 
         enumerable: false,
         value: null
     },
-/**
-    The current state.
-    @function
-    @returns The current state.
-    */
+
+    /**
+     * The current state.
+     * @method
+     * @returns The current state.
+     */
     currentState: {
         get: function() {
             return this.ownerStateProperty ? null : this._currentState;
         }
     },
-/**
-    Initializes a StateChart with a State object, and returns the StateChart.
-    @function
-    @param {String} state TODO
-    @returns {StateChart}
+
+    /**
+     * Initializes a StateChart with a State object, and returns the
+     * StateChart.
+     * @method
+     * @param {string} state TODO
+     * @returns {StateChart}
     */
     initWithState: {
         value: function(state) {
@@ -325,11 +311,12 @@ var StateChart = exports.StateChart = Montage.specialize(/** @lends StateChart# 
         enumerable: false,
         value: null
     },
-/**
-    The default state.
-    @function
-    @returns this._defaultState
-    */
+
+    /**
+     * The default state.
+     * @method
+     * @returns this._defaultState
+     */
     defaultState: {
         enumerable: false,
         get: function() {
@@ -348,10 +335,11 @@ var StateChart = exports.StateChart = Montage.specialize(/** @lends StateChart# 
             return this._defaultState;
         }
     },
-/**
-    @function
-    @returns this.defaultState
-    */
+
+    /**
+     * @method
+     * @returns this.defaultState
+     */
     enterDefaultState: {
         enumerable: false,
         value: function() {
@@ -360,19 +348,20 @@ var StateChart = exports.StateChart = Montage.specialize(/** @lends StateChart# 
             }
 
             var owner = this.ownerStateProperty ? this.owner : this,
-                // Using internal ownerStateProperty normally reserved for writing, seeing as many
-                // components trigger this enterDefaultState, when their ownerStateProperty.get is invoked the first
-                // time. So we need to stop the infinite loop
+                // Using internal ownerStateProperty normally reserved for
+            // writing, seeing as many components trigger this
+            // enterDefaultState, when their ownerStateProperty.get is invoked
+            // the first time. So we need to stop the infinite loop
                 currentState = this.ownerStateProperty ? owner["_" + this.ownerStateProperty] : owner.currentState;
 
             if (currentState) {
                 throw "Cannot enter default state from '" + currentState.name + "'";
             }
 
-            // We could probably use gotoState for this but I want to minimize the callbacks
-            // as we're not really transitioning for the first setup of the state
-            // we're just getting there, I don't think we need to make it look like
-            // a "transition" to the delegate
+            // We could probably use gotoState for this but I want to minimize
+            // the callbacks as we're not really transitioning for the first
+            // setup of the state we're just getting there, I don't think we
+            // need to make it look like a "transition" to the delegate
             var deepestState, nextState;
             deepestState = nextState = this.rootState;
 
@@ -399,9 +388,7 @@ var StateChart = exports.StateChart = Montage.specialize(/** @lends StateChart# 
             return this.defaultState;
         }
     },
-/**
-  @private
-*/
+
     _prepareState: {
         enumerable: false,
         value: function(state) {
@@ -418,29 +405,29 @@ var StateChart = exports.StateChart = Montage.specialize(/** @lends StateChart# 
             }
         }
     },
-/**
-  @private
-*/
+
     _states: {
         enumerable: false,
         value: null
     },
-/**
-    @function
-    @param {Property} stateName TODO
-    @returns {Array} this._states[stateName]
-    */
+
+    /**
+     * @method
+     * @param {Property} stateName TODO
+     * @returns {Array} this._states[stateName]
+     */
     stateWithName: {
         enumerable: false,
         value: function(stateName) {
             return this._states[stateName];
         }
     },
-/**
-    @function
-    @param {String} action TODO
-    @param {String} owner TODO
-    */
+
+    /**
+     * @method
+     * @param {string} action TODO
+     * @param {string} owner TODO
+     */
     performAction: {
         value: function(action, owner) {
 
@@ -462,9 +449,7 @@ var StateChart = exports.StateChart = Montage.specialize(/** @lends StateChart# 
             this.owner = null;
         }
     },
-/**
-  @private
-*/
+
     _gotoState: {
         value: function(state, owner) {
 
@@ -594,7 +579,8 @@ var StateChart = exports.StateChart = Montage.specialize(/** @lends StateChart# 
                     }
 
                     // Update the currentState as we enter each state
-                    // TODO is this really necessary, is it best done at this point? what about exit?
+                    // TODO is this really necessary, is it best done at this
+                    // point? what about exit?
                     if (this.ownerStateProperty) {
                         owner["_" + this.ownerStateProperty] = iState;
                     } else {
@@ -625,3 +611,4 @@ var StateChart = exports.StateChart = Montage.specialize(/** @lends StateChart# 
     }
 
 });
+

@@ -845,12 +845,23 @@
             "bindings": {
                 "content": {"<-": "@owner.catImages"}
             }
+        },
+        "select": {
+            "prototype": "digit/ui/select.reel",
+            "properties": {
+                "element": {"#": "select"}
+            }
         }
     }
     </script>
 </head>
 <body>
     <div data-montage-id="main" data-montage-skin="light" class="Main">
+        <select data-montage-id="select">
+            <option value="">
+                Select
+            </option>
+        </select>
         <div id="rainbow"></div>
         <img id="nyan" src="nyan.gif">
         <div style="position: absolute; top: 45px; left: 0; right: 0; bottom: 0" data-montage-id="flow">
