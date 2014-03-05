@@ -5,7 +5,7 @@
     margin-bottom: auto;
 
     top: 0; bottom: 0;
-    left: 0px; right: 0px;
+    left: 450px; right: 0px;
 }
 
 .Rainbow-rainbow {
@@ -16,7 +16,7 @@
     width: 2000px;
 
     top: 0; bottom: 0;
-    right: -1500px; left: 0;
+    right: 0; left: -1500px;
 
     background-image: url('../main.reel/nyanrainbow.png');
     background-repeat: repeat-x;
