@@ -19,9 +19,6 @@ exports.Main = Component.specialize(/** @lends Main# */ {
     },
     templateDidLoad: {
         value: function() {
-            var script = document.createElement("script");
-            script.src = "http://www.reddit.com/r/" + this.selectedSub + ".json?limit=100&jsonp=catfn";
-
             var component = this;
             window["catfn"] = function(jsonData) {
                 for (var i = 0; i < jsonData.data.children.length; i++) {
@@ -32,6 +29,15 @@ exports.Main = Component.specialize(/** @lends Main# */ {
                 }
             };
 
+            this.addPathChangeListener("selectedSub", this, "handleSelectedSubChange");
+        }
+    },
+    
+    handleSelectedSubChange: {
+        value: function(selectedSub) {
+            var script = document.createElement("script");
+            
+            script.src = "http://www.reddit.com/r/" + selectedSub + ".json?limit=100&jsonp=catfn";
             document.head.appendChild(script);
         }
     }
