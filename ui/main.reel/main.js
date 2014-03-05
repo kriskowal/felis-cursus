@@ -30,7 +30,7 @@ exports.Main = Component.specialize(/** @lends Main# */ {
             };
 
             this.addPathChangeListener("selectedSub", this, "handleSelectedSubChange");
-            this.templateObjects.selectSub.content = [
+            this.templateObjects.subSelect.content = [
                 {label: "Cats Standing Up", sub: "catsstandingup"},
                 {label: "Animated GIFs", sub: "gifs"}
             ];
