@@ -18,7 +18,7 @@
     top: 0; bottom: 0;
     right: -1500px; left: 0;
 
-    background-image: url('nyanrainbow.png');
+    background-image: url('../main.reel/nyanrainbow.png');
     background-repeat: repeat-x;
 }
 
