@@ -26,7 +26,7 @@ exports.Main = Component.specialize(/** @lends Main# */ {
                 for (var i = 0; i < jsonData.data.children.length; i++) {
                     var item = jsonData.data.children[i];
                     
-                    if (item.data.url.toLowerCase().match(/i.imgur.com\/[a-zA-Z0-9]+.jpg/)) {
+                    if (item.data.url.toLowerCase().match(/i.imgur.com\/[a-zA-Z0-9]+.(jpg|gif)/)) {
                         catImages.push(item.data.url.replace(".jpg", "m.jpg"));
                     }
                     component.catImages = catImages;
