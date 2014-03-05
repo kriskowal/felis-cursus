@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        Main
+    </title>
+    <link rel="stylesheet" href="main.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "prototype": "ui/main.reel",
+            "properties": {
+                "element": {"#": "main"},
+                "selectedSub": "catsstandingup"
+            }
+        },
+        "flow": {
+            "prototype": "montage/ui/flow.reel",
+            "properties": {
+                "element": {"#": "flow"},
+                "cameraFov": 50,
+                "cameraPosition": [
+                    -150,
+                    60,
+                    1500
+                ],
+                "cameraTargetPoint": [
+                    -150,
+                    60,
+                    0
+                ],
+                "content": [],
+                "contentController": {"@": "rangeController"},
+                "flowEditorMetadata": {
+                    "flowEditorVersion": 0.1,
+                    "shapes": [
+                        {
+                            "type": "FlowSpline",
+                            "name": "Spline 1",
+                            "pathIndex": 0
+                        }
+                    ],
+                    "selected": 0
+                },
+                "hasSelectedIndexScrolling": false,
+                "isSelectionEnabled": false,
+                "linearScrollingVector": [
+                    -300,
+                    0
+                ],
+                "paths": [
+                    {
+                        "knots": [
+                            {
+                                "previousHandlerPosition": [],
+                                "nextDensity": 10,
+                                "previousDensity": 10,
+                                "knotPosition": [
+                                    -1230,
+                                    80,
+                                    -151
+                                ],
+                                "rotateX": 0,
+                                "rotateY": 0,
+                                "rotateZ": 0,
+                                "opacity": 1,
+                                "nextHandlerPosition": [
+                                    -370,
+                                    -560,
+                                    -151
+                                ]
+                            },
+                            {
+                                "knotPosition": [
+                                    1240,
+                                    190,
+                                    -2311
+                                ],
+                                "nextHandlerPosition": [
+                                    2649.9999999999995,
+                                    -190,
+                                    -5001
+                                ],
+                                "previousHandlerPosition": [
+                                    -169.99999999999955,
+                                    570,
+                                    379
+                                ],
+                                "nextDensity": 10,
+                                "previousDensity": 10,
+                                "rotateX": 0,
+                                "rotateY": 0,
+                                "rotateZ": 0,
+                                "opacity": 1
+                            }
+                        ],
+                        "units": {
+                            "rotateX": "",
+                            "rotateY": "",
+                            "rotateZ": "",
+                            "opacity": ""
+                        },
+                        "headOffset": 0,
+                        "tailOffset": 0
+                    }
+                ],
+                "scrollingTransitionDuration": 500,
+                "scrollingTransitionTimingFunction": "ease",
+                "scrollVectorX": true,
+                "scrollVectorY": true,
+                "selectedIndexScrollingOffset": 0,
+                "stride": ""
+            }
+        },
+        "image": {
+            "prototype": "digit/ui/image.reel",
+            "properties": {
+                "element": {"#": "image"}
+            },
+            "bindings": {
+                "src": {"<-": "@flow.objectAtCurrentIteration"}
+            }
+        },
+        "rangeController": {
+            "prototype": "montage/core/range-controller",
+            "bindings": {
+                "content": {"<-": "@owner.catImages"}
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="main" data-montage-skin="light" class="Main">
+        <div id="rainbow"></div>
+        <img id="nyan" src="nyan.gif">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0" data-montage-id="flow">
+            <div class="nyanblock">
+                <img data-montage-id="image" src="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
