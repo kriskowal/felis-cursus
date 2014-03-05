@@ -2,7 +2,7 @@
     "name": "cat-flow",
     "version": "0.1.0",
     "dependencies": {
-        "montage": "~0.13.8",
+        "montage": "~0.14.3",
         "digit": "~0.4.0"
     },
     "devDependencies": {
