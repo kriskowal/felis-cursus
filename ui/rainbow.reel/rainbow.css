@@ -1,3 +1,24 @@
-.Rainbow {
 
+.Rainbow-nyan {
+    position: absolute;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    top: 0; bottom: 0;
+    right: 15px;
 }
+
+.Rainbow-rainbow {
+    position: absolute;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 133px;
+    width: 2000px;
+
+    top: 0; bottom: 0;
+    right: -1500px; left: 0;
+
+    background-image: url('nyanrainbow.png');
+    background-repeat: repeat-x;
+}
+
