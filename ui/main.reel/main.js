@@ -30,6 +30,10 @@ exports.Main = Component.specialize(/** @lends Main# */ {
             };
 
             this.addPathChangeListener("selectedSub", this, "handleSelectedSubChange");
+            this.templateObjects.selectSub.content = [
+                {label: "Cats Standing Up", sub: "catsstandingup"},
+                {label: "Animated GIFs", sub: "gifs"}
+            ];
         }
     },
     
