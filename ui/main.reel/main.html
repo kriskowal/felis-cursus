@@ -9,7 +9,6 @@
     <script type="text/montage-serialization">
     {
         "owner": {
-            "prototype": "ui/main.reel",
             "properties": {
                 "element": {"#": "main"},
                 "selectedSub": "catsstandingup"
@@ -21,8 +20,8 @@
                 "element": {"#": "flow"},
                 "cameraFov": 50,
                 "cameraPosition": [
-                    -150,
-                    60,
+                    -160,
+                    50,
                     1500
                 ],
                 "cameraTargetPoint": [
@@ -38,11 +37,13 @@
                         {
                             "type": "FlowSpline",
                             "name": "Spline 1",
-                            "pathIndex": 0
+                            "pathIndex": 0,
+                            "id": 18
                         }
                     ],
                     "selected": 0
                 },
+                "hasElasticScrolling": true,
                 "hasSelectedIndexScrolling": false,
                 "isSelectionEnabled": false,
                 "linearScrollingVector": [
@@ -57,35 +58,81 @@
                                 "nextDensity": 10,
                                 "previousDensity": 10,
                                 "knotPosition": [
-                                    -1230,
-                                    80,
-                                    -151
+                                    -2019.9999999999995,
+                                    -50,
+                                    0
                                 ],
                                 "rotateX": 0,
                                 "rotateY": 0,
                                 "rotateZ": 0,
                                 "opacity": 1,
                                 "nextHandlerPosition": [
-                                    -370,
-                                    -560,
-                                    -151
+                                    -1789.9999999999995,
+                                    -550,
+                                    -160
                                 ]
                             },
                             {
                                 "knotPosition": [
-                                    1240,
-                                    190,
-                                    -2311
+                                    -1099.9999999999998,
+                                    100,
+                                    40
                                 ],
                                 "nextHandlerPosition": [
-                                    2649.9999999999995,
-                                    -190,
-                                    -5001
+                                    -699.9999999999998,
+                                    310,
+                                    260
                                 ],
                                 "previousHandlerPosition": [
-                                    -169.99999999999955,
-                                    570,
-                                    379
+                                    -1499.9999999999998,
+                                    -110,
+                                    -180
+                                ],
+                                "nextDensity": 4.000000000000001,
+                                "previousDensity": 4.000000000000001,
+                                "rotateX": 0,
+                                "rotateY": 0,
+                                "rotateZ": 0,
+                                "opacity": 1
+                            },
+                            {
+                                "knotPosition": [
+                                    40.00000000000023,
+                                    -360,
+                                    -10
+                                ],
+                                "nextHandlerPosition": [
+                                    350.0000000000002,
+                                    -730,
+                                    -340
+                                ],
+                                "previousHandlerPosition": [
+                                    -269.9999999999998,
+                                    10,
+                                    320
+                                ],
+                                "nextDensity": 3.299999999999998,
+                                "previousDensity": 3.299999999999998,
+                                "rotateX": 0,
+                                "rotateY": 0,
+                                "rotateZ": 0,
+                                "opacity": 1
+                            },
+                            {
+                                "knotPosition": [
+                                    1890,
+                                    -310,
+                                    -2980
+                                ],
+                                "nextHandlerPosition": [
+                                    2370,
+                                    200,
+                                    -2550
+                                ],
+                                "previousHandlerPosition": [
+                                    1410,
+                                    -820,
+                                    -3410
                                 ],
                                 "nextDensity": 10,
                                 "previousDensity": 10,
@@ -110,6 +157,7 @@
                 "scrollVectorX": true,
                 "scrollVectorY": true,
                 "selectedIndexScrollingOffset": 0,
+                "slotContent": {"@": "rainbow"},
                 "stride": ""
             }
         },
@@ -120,6 +168,12 @@
             },
             "bindings": {
                 "src": {"<-": "@flow.objectAtCurrentIteration"}
+            }
+        },
+        "rainbow": {
+            "prototype": "ui/rainbow.reel",
+            "properties": {
+                "element": {"#": "rainbow"}
             }
         },
         "rangeController": {
@@ -133,13 +187,12 @@
 </head>
 <body>
     <div data-montage-id="main" data-montage-skin="light" class="Main">
-        <div id="rainbow"></div>
-        <img id="nyan" src="nyan.gif">
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0" data-montage-id="flow">
             <div class="nyanblock">
                 <img data-montage-id="image" src="">
             </div>
         </div>
+        <div data-montage-id="rainbow"></div>
     </div>
 </body>
 </html>
