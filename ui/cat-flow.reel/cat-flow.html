@@ -10,11 +10,22 @@
     {
         "owner": {
             "properties": {
-                "element": {"#": "main"},
-                "selectedSub": "catsstandingup"
+                "element": {"#": "main"}
+            }
+        },
+        "image": {
+            "prototype": "digit/ui/image.reel",
+            "properties": {
+                "element": {"#": "image"}
             },
             "bindings": {
-                "selectedSub": {"<-": "@subSelect.value.sub"}
+                "src": {"<-": "@flow:iteration.object"}
+            }
+        },
+        "rainbow": {
+            "prototype": "ui/rainbow.reel",
+            "properties": {
+                "element": {"#": "rainbow"}
             }
         },
         "flow": {
@@ -32,8 +43,6 @@
                     60,
                     0
                 ],
-                "content": [],
-                "contentController": {"@": "rangeController"},
                 "flowEditorMetadata": {
                     "flowEditorVersion": 0.1,
                     "shapes": [
@@ -162,33 +171,9 @@
                 "selectedIndexScrollingOffset": 0,
                 "slotContent": {"@": "rainbow"},
                 "stride": ""
-            }
-        },
-        "image": {
-            "prototype": "digit/ui/image.reel",
-            "properties": {
-                "element": {"#": "image"}
             },
             "bindings": {
-                "src": {"<-": "@flow:iteration.object"}
-            }
-        },
-        "rainbow": {
-            "prototype": "ui/rainbow.reel",
-            "properties": {
-                "element": {"#": "rainbow"}
-            }
-        },
-        "rangeController": {
-            "prototype": "montage/core/range-controller",
-            "bindings": {
-                "content": {"<-": "@owner.catImages"}
-            }
-        },
-        "subSelect": {
-            "prototype": "digit/ui/select.reel",
-            "properties": {
-                "element": {"#": "subSelect"}
+                "contentController": {"<-": "@owner.contentController"}
             }
         }
     }
@@ -196,69 +181,12 @@
 </head>
 <body>
     <div data-montage-id="main" data-montage-skin="light" class="Main">
-        <select data-montage-id="subSelect">
-            <option value="">
-                Select
-            </option>
-        </select>
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0" data-montage-id="flow">
             <div class="nyanblock">
                 <img data-montage-id="image" src="">
             </div>
         </div>
         <div data-montage-id="rainbow"></div>
-    </div>
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>
-        Main
-    </title>
-    <link rel="stylesheet" href="main.css">
-    <script type="text/montage-serialization">
-    {
-        "owner": {
-            "properties": {
-                "element": {"#": "main"},
-                "selectedSub": "catsstandingup"
-            },
-            "bindings": {
-                "selectedSub": {"<-": "@subSelect.value.sub"}
-            }
-        },
-        "flow": {
-            "prototype": "ui/core/cat-flow.reel",
-            "properties": {
-                "element": {"#": "flow"},
-                "contentController": {"@": "rangeController"}
-            }
-        },
-        "rangeController": {
-            "prototype": "montage/core/range-controller",
-            "bindings": {
-                "content": {"<-": "@owner.catImages"}
-            }
-        },
-        "subSelect": {
-            "prototype": "digit/ui/select.reel",
-            "properties": {
-                "element": {"#": "subSelect"}
-            }
-        }
-    }
-    </script>
-</head>
-<body>
-    <div data-montage-id="main" data-montage-skin="light" class="Main">
-        <select data-montage-id="subSelect">
-            <option value="">
-                Select
-            </option>
-        </select>
-        <div data-montage-id="flow"></div>
     </div>
 </body>
 </html>
