@@ -2,244 +2,37 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>
-        Main
-    </title>
+    <title>Felis Cursus</title>
     <link rel="stylesheet" href="main.css">
     <script type="text/montage-serialization">
     {
         "owner": {
             "properties": {
-                "element": {"#": "main"},
-                "selectedSub": "catsstandingup"
+                "element": {"#": "main"}
             },
             "bindings": {
-                "selectedSub": {"<-": "@subSelect.value.sub"}
+                "selectedSub": {
+                    "<-": "@subSelect.value.sub"
+                }
             }
         },
         "flow": {
-            "prototype": "montage/ui/flow.reel",
-            "properties": {
-                "element": {"#": "flow"},
-                "cameraFov": 50,
-                "cameraPosition": [
-                    -160,
-                    50,
-                    1500
-                ],
-                "cameraTargetPoint": [
-                    -150,
-                    60,
-                    0
-                ],
-                "content": [],
-                "contentController": {"@": "rangeController"},
-                "flowEditorMetadata": {
-                    "flowEditorVersion": 0.1,
-                    "shapes": [
-                        {
-                            "type": "FlowSpline",
-                            "name": "Spline 1",
-                            "pathIndex": 0,
-                            "id": 18
-                        }
-                    ],
-                    "selected": 0
-                },
-                "hasElasticScrolling": true,
-                "hasSelectedIndexScrolling": false,
-                "isSelectionEnabled": false,
-                "linearScrollingVector": [
-                    -300,
-                    0
-                ],
-                "paths": [
-                    {
-                        "knots": [
-                            {
-                                "previousHandlerPosition": [],
-                                "nextDensity": 10,
-                                "previousDensity": 10,
-                                "knotPosition": [
-                                    -2019.9999999999995,
-                                    -50,
-                                    0
-                                ],
-                                "rotateX": 0,
-                                "rotateY": 0,
-                                "rotateZ": 0,
-                                "opacity": 1,
-                                "nextHandlerPosition": [
-                                    -1789.9999999999995,
-                                    -550,
-                                    -160
-                                ]
-                            },
-                            {
-                                "knotPosition": [
-                                    -1099.9999999999998,
-                                    100,
-                                    40
-                                ],
-                                "nextHandlerPosition": [
-                                    -699.9999999999998,
-                                    310,
-                                    260
-                                ],
-                                "previousHandlerPosition": [
-                                    -1499.9999999999998,
-                                    -110,
-                                    -180
-                                ],
-                                "nextDensity": 4.000000000000001,
-                                "previousDensity": 4.000000000000001,
-                                "rotateX": 0,
-                                "rotateY": 0,
-                                "rotateZ": 0,
-                                "opacity": 1
-                            },
-                            {
-                                "knotPosition": [
-                                    40.00000000000023,
-                                    -360,
-                                    -10
-                                ],
-                                "nextHandlerPosition": [
-                                    350.0000000000002,
-                                    -730,
-                                    -340
-                                ],
-                                "previousHandlerPosition": [
-                                    -269.9999999999998,
-                                    10,
-                                    320
-                                ],
-                                "nextDensity": 3.299999999999998,
-                                "previousDensity": 3.299999999999998,
-                                "rotateX": 0,
-                                "rotateY": 0,
-                                "rotateZ": 0,
-                                "opacity": 1
-                            },
-                            {
-                                "knotPosition": [
-                                    1890,
-                                    -310,
-                                    -2980
-                                ],
-                                "nextHandlerPosition": [
-                                    2370,
-                                    200,
-                                    -2550
-                                ],
-                                "previousHandlerPosition": [
-                                    1410,
-                                    -820,
-                                    -3410
-                                ],
-                                "nextDensity": 10,
-                                "previousDensity": 10,
-                                "rotateX": 0,
-                                "rotateY": 0,
-                                "rotateZ": 0,
-                                "opacity": 1
-                            }
-                        ],
-                        "units": {
-                            "rotateX": "",
-                            "rotateY": "",
-                            "rotateZ": "",
-                            "opacity": ""
-                        },
-                        "headOffset": 0,
-                        "tailOffset": 0
-                    }
-                ],
-                "scrollingTransitionDuration": 500,
-                "scrollingTransitionTimingFunction": "ease",
-                "scrollVectorX": true,
-                "scrollVectorY": true,
-                "selectedIndexScrollingOffset": 0,
-                "slotContent": {"@": "rainbow"},
-                "stride": ""
-            }
-        },
-        "image": {
-            "prototype": "digit/ui/image.reel",
-            "properties": {
-                "element": {"#": "image"}
-            },
-            "bindings": {
-                "src": {"<-": "@flow:iteration.object"}
-            }
-        },
-        "rainbow": {
-            "prototype": "ui/rainbow.reel",
-            "properties": {
-                "element": {"#": "rainbow"}
-            }
-        },
-        "rangeController": {
-            "prototype": "montage/core/range-controller",
-            "bindings": {
-                "content": {"<-": "@owner.catImages"}
-            }
-        },
-        "subSelect": {
-            "prototype": "digit/ui/select.reel",
-            "properties": {
-                "element": {"#": "subSelect"}
-            }
-        }
-    }
-    </script>
-</head>
-<body>
-    <div data-montage-id="main" data-montage-skin="light" class="Main">
-        <select data-montage-id="subSelect">
-            <option value="">
-                Select
-            </option>
-        </select>
-        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0" data-montage-id="flow">
-            <div class="nyanblock">
-                <img data-montage-id="image" src="">
-            </div>
-        </div>
-        <div data-montage-id="rainbow"></div>
-    </div>
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>
-        Main
-    </title>
-    <link rel="stylesheet" href="main.css">
-    <script type="text/montage-serialization">
-    {
-        "owner": {
-            "properties": {
-                "element": {"#": "main"},
-                "selectedSub": "catsstandingup"
-            },
-            "bindings": {
-                "selectedSub": {"<-": "@subSelect.value.sub"}
-            }
-        },
-        "flow": {
-            "prototype": "ui/core/cat-flow.reel",
+            "prototype": "ui/cat-flow.reel",
             "properties": {
                 "element": {"#": "flow"},
                 "contentController": {"@": "rangeController"}
             }
         },
+        "progress": {
+            "prototype": "ui/progress.reel",
+            "properties": {
+                "element": {"#": "progress"}
+            }
+        },
         "rangeController": {
             "prototype": "montage/core/range-controller",
             "bindings": {
-                "content": {"<-": "@owner.catImages"}
+                "content": {"<-": "@promiseController.value"}
             }
         },
         "subSelect": {
@@ -247,18 +40,42 @@
             "properties": {
                 "element": {"#": "subSelect"}
             }
+        },
+        "substitution": {
+            "prototype": "montage/ui/substitution.reel",
+            "properties": {
+                "element": {"#": "substitution"}
+            },
+            "bindings": {
+                "switchValue": {
+                    "<-": "@promiseController.fulfilled ? 'fulfilled' : 'pending'"
+                }
+            }
+        },
+        "promiseController": {
+            "prototype": "montage/core/promise-controller",
+            "bindings": {
+                "promise": {"<-": "@owner.catImagesPromise"}
+            }
         }
     }
     </script>
 </head>
 <body>
     <div data-montage-id="main" data-montage-skin="light" class="Main">
-        <select data-montage-id="subSelect">
+        <select data-montage-id="subSelect" class="SubSelect">
             <option value="">
-                Select
+                Select&hellip;
             </option>
         </select>
-        <div data-montage-id="flow"></div>
+        <div data-montage-id="substitution" class="Content">
+            <div data-arg="pending">
+                <div data-montage-id="progress"></div>
+            </div>
+            <div data-arg="fulfilled">
+                <div data-montage-id="flow"></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

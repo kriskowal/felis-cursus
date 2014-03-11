@@ -1,25 +1,18 @@
+
 .Main {
 }
 
-#nyan {
+.SubSelect {
     position: absolute;
-    margin-top: auto;
-    margin-bottom: auto;
-    
-    top: 0; bottom: 0;
-    right: 15px;
+    top: 0;
+    left: 0;
 }
 
-#rainbow {
+.Content {
     position: absolute;
-    margin-top: auto;
-    margin-bottom: auto;
-    height: 133px;
-    
-    top: 0; bottom: 0;
-    right: 220px; left: 0;
-
-    background-image: url('nyanrainbow.png');
-    background-repeat: repeat-x;
+    top: 60px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
 }
 
