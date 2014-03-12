@@ -12,6 +12,10 @@ var Q = require("q");
  */
 exports.Main = Component.specialize(/** @lends Main# */ {
 
+    catImagesPromise: {
+        value: null
+    },
+
     catImages: {
         value: []
     },
