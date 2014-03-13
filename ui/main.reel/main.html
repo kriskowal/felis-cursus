@@ -12,67 +12,13 @@
             "properties": {
                 "element": {"#": "main"}
             }
-        },
-        "catFlow": {
-            "prototype": "ui/cat-flow.reel",
-            "properties": {
-                "element": {"#": "catFlow"}
-            },
-            "bindings": {
-                "contentController": {"<-": "@rangeController"}
-            }
-        },
-        "progress": {
-            "prototype": "ui/progress.reel",
-            "properties": {
-                "element": {"#": "progress"}
-            }
-        },
-        "promiseController": {
-            "prototype": "montage/core/promise-controller",
-            "bindings": {
-                "promise": {"<-": "@owner.catImagesPromise"}
-            }
-        },
-        "rangeController": {
-            "prototype": "montage/core/range-controller",
-            "bindings": {
-                "content": {"<-": "@promiseController.value"}
-            }
-        },
-        "subSelect": {
-            "prototype": "digit/ui/select.reel",
-            "properties": {
-                "element": {"#": "subSelect"}
-            }
-        },
-        "substitution": {
-            "prototype": "montage/ui/substitution.reel",
-            "properties": {
-                "element": {"#": "substitution"}
-            },
-            "bindings": {
-                "switchValue": {"<-": "@promiseController.fulfilled ? 'fulfilled' : 'pending'"}
-            }
         }
     }
     </script>
 </head>
 <body>
     <div data-montage-id="main" data-montage-skin="light" class="Main">
-        <select data-montage-id="subSelect">
-            <option value="">
-                Select
-            </option>
-        </select>
-        <div data-montage-id="substitution">
-            <div data-arg="pending">
-                <div data-montage-id="progress"></div>
-            </div>
-            <div data-arg="fulfilled">
-                <div data-montage-id="catFlow"></div>
-            </div>
-        </div>
+
     </div>
 </body>
 </html>
