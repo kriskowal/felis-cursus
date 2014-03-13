@@ -27,11 +27,6 @@ exports.Main = Component.specialize(/** @lends Main# */ {
             var component = this;
 
             this.addPathChangeListener("selectedSub", this, "handleSelectedSubChange");
-            this.templateObjects.subSelect.content = [
-                {label: "Cats Standing Up", sub: "catsstandingup"},
-                {label: "DIY", sub: "diy"},
-                {label: "Lord of the Rings", sub: "lotr"},
-            ];
 
         }
     },
