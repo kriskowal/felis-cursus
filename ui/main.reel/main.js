@@ -41,29 +41,5 @@ exports.Main = Component.specialize(/** @lends Main# */ {
             })
             .delay(1000);
         }
-    },
-
-    handleSelectedSubChange: {
-        value: function (selectedSub) {
-
-            if (!selectedSub) {
-                this.catImagesPromise = null;
-                return;
-            }
-
-            this.catImagesPromise = Jsonp.request(
-                "http://www.reddit.com/r/" + selectedSub + ".json?limit=100", "jsonp"
-            ).then(function (jsonData) {
-                var catImages = [];
-                for (var i = 0; i < jsonData.data.children.length; i++) {
-                    var item = jsonData.data.children[i];
-                    if (item.data.url.toLowerCase().match(/i.imgur.com\/[a-zA-Z0-9]+.(jpg|gif)/)) {
-                        catImages.push(item.data.url.replace(".jpg", "m.jpg"));
-                    }
-                }
-                return catImages;
-            })
-            .delay(1000);
-        }
     }
 });
