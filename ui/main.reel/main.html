@@ -2,60 +2,15 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Felis Cursus</title>
+    <title>
+        Felis Cursus
+    </title>
     <link rel="stylesheet" href="main.css">
     <script type="text/montage-serialization">
     {
         "owner": {
             "properties": {
                 "element": {"#": "main"}
-            },
-            "bindings": {
-                "selectedSub": {
-                    "<-": "@subSelect.value.sub"
-                }
-            }
-        },
-        "flow": {
-            "prototype": "ui/cat-flow.reel",
-            "properties": {
-                "element": {"#": "flow"},
-                "contentController": {"@": "rangeController"}
-            }
-        },
-        "progress": {
-            "prototype": "ui/progress.reel",
-            "properties": {
-                "element": {"#": "progress"}
-            }
-        },
-        "rangeController": {
-            "prototype": "montage/core/range-controller",
-            "bindings": {
-                "content": {"<-": "@promiseController.value"}
-            }
-        },
-        "subSelect": {
-            "prototype": "digit/ui/select.reel",
-            "properties": {
-                "element": {"#": "subSelect"}
-            }
-        },
-        "substitution": {
-            "prototype": "montage/ui/substitution.reel",
-            "properties": {
-                "element": {"#": "substitution"}
-            },
-            "bindings": {
-                "switchValue": {
-                    "<-": "@promiseController.fulfilled ? 'fulfilled' : 'pending'"
-                }
-            }
-        },
-        "promiseController": {
-            "prototype": "montage/core/promise-controller",
-            "bindings": {
-                "promise": {"<-": "@owner.catImagesPromise"}
             }
         }
     }
@@ -63,19 +18,7 @@
 </head>
 <body>
     <div data-montage-id="main" data-montage-skin="light" class="Main">
-        <select data-montage-id="subSelect" class="SubSelect">
-            <option value="">
-                Select&hellip;
-            </option>
-        </select>
-        <div data-montage-id="substitution" class="Content">
-            <div data-arg="pending">
-                <div data-montage-id="progress"></div>
-            </div>
-            <div data-arg="fulfilled">
-                <div data-montage-id="flow"></div>
-            </div>
-        </div>
+
     </div>
 </body>
 </html>
