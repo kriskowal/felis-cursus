@@ -27,25 +27,8 @@ exports.Main = Component.specialize(/** @lends Main# */ {
             var component = this;
 
             this.addPathChangeListener("selectedSub", this, "handleSelectedSubChange");
-            this.templateObjects.subSelect.content = [
-                {label: "Cats Standing Up", sub: "catsstandingup"},
-                {label: "DIY", sub: "diy"},
-                {label: "Lord of the Rings", sub: "lotr"},
-            ];
-
-        }
-    },
-
-    handleSelectedSubChange: {
-        value: function (selectedSub) {
-
-            if (!selectedSub) {
-                this.catImagesPromise = null;
-                return;
-            }
-
             this.catImagesPromise = Jsonp.request(
-                "http://www.reddit.com/r/" + selectedSub + ".json?limit=100", "jsonp"
+                "http://www.reddit.com/r/catsstandingup.json?limit=100", "jsonp"
             ).then(function (jsonData) {
                 var catImages = [];
                 for (var i = 0; i < jsonData.data.children.length; i++) {
